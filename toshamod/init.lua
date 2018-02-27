@@ -218,7 +218,7 @@ minetest.register_tool("toshamod:oil_rig", {
 minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
-{'', 'default:stick', ''}, {'default:stick', 'technic:carbon_steel_ingot', 'default:stick'}, {'default:stick', 'technic:tree_tap', 'default:stick'}
+{'', 'default:stick', ''}, {'default:stick', 'default:steel_ingot', 'default:stick'}, {'default:stick', '', 'default:stick'}
 	}
 })
 
@@ -242,3 +242,9 @@ minetest.register_craft({
 	burntime = 45,
 })
 
+minetest.register_craft({
+	type = "cooking",
+	output = "default:diamond",
+	recipe = "technic:graphite 5",
+	cooktime = 20,
+})
