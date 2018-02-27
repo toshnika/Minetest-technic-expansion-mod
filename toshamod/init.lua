@@ -248,3 +248,10 @@ minetest.register_craft({
 	recipe = "technic:graphite 5",
 	cooktime = 20,
 })
+
+minetest.register_craft({
+	type = "cooking",
+	output = "default:coal",
+	recipe = "default:tree",
+	cooktime = 3,
+})
