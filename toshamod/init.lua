@@ -18,22 +18,11 @@ minetest.register_craft({
 minetest.register_craftitem("toshamod:thorium_ingot", {
 	description = "Thorium Ingot",
 	inventory_image = "thorium_ingot.png",
-
-	on_drop = function(itemstack, dropper, pos)
-		--Prints a random number and removes one item from the stack
-		itemstack:take_item()
-		return itemstack
-	end,
 })
 
 minetest.register_craftitem("toshamod:rubium_ingot", {
 	description = "Rubium Ingot",
 	inventory_image = "rubium_ingot.png",
-
-	on_drop = function(itemstack, dropper, pos)
-		itemstack:take_item()	
-		return itemstack
-	end,
 })
 
 minetest.register_craft({
@@ -70,7 +59,7 @@ minetest.register_abm({
 	nodenames = {"technic:granite"},
 	neighbors = {"technic:granite"},
 	interval = 200.0,
-	chance = 100,	
+	chance = 90,	
 	action = function(pos, node, active_object_count, active_object_count_wider)
         minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "toshamod:thorium_ore"})
     end
