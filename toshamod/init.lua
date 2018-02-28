@@ -262,7 +262,7 @@ minetest.register_craftitem("toshamod:diamond_shard", {
 })
 
 minetest.register_craft({
-	output = "defualt:diamond",
+	output = "default:diamond",
 	recipe = { 
 {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'', '', ''}
 	}
