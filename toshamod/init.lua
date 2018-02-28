@@ -262,9 +262,8 @@ minetest.register_craftitem("toshamod:diamond_shard", {
 })
 
 minetest.register_craft({
-	type = "shapeless"
 	output = "defualt:diamond",
 	recipe = { 
-{'toshamod:diamond_shard', 'toshamod:diamond_shard', 'toshamod:diamond_shard'}, {'toshamod:diamond_shard', '', ''}, {'', '', ''}
+{'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'', '', ''}
 	}
 })
