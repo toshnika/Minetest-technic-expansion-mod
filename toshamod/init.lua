@@ -218,7 +218,7 @@ minetest.register_tool("toshamod:oil_rig", {
 minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
-{'', 'default:stick', ''}, {'default:stick', 'default:steel_ingot', 'default:stick'}, {'default:stick', '', 'default:stick'}
+{'', 'default:stick', ''}, {'default:stick', 'technic:stainless_steel_ingot', 'default:stick'}, {'default:stick', '', 'default:stick'}
 	}
 })
 
@@ -244,8 +244,8 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "cooking",
-	output = "default:diamond",
-	recipe = "technic:graphite 5",
+	output = "toshamod:diamond_shard",
+	recipe = "technic:graphite",
 	cooktime = 20,
 })
 
@@ -254,4 +254,17 @@ minetest.register_craft({
 	output = "default:coal",
 	recipe = "default:tree",
 	cooktime = 3,
+})
+
+minetest.register_craftitem("toshamod:diamond_shard", {
+	description = "Diamond Shard",
+	inventory_image = "diamond_shard.png"
+})
+
+minetest.register_craft({
+	type = "shapeless"
+	output = "defualt:diamond",
+	recipe = { 
+{'toshamod:diamond_shard', 'toshamod:diamond_shard', 'toshamod:diamond_shard'}, {'toshamod:diamond_shard', '', ''}, {'', '', ''}
+	}
 })
