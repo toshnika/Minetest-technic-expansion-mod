@@ -267,3 +267,55 @@ minetest.register_craft({
 {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'', '', ''}
 	}
 })
+
+minetest.register_node('toshamod:plastic_block', {
+	description = "Plastic Block",
+	tiles = {"plastic_block.png"},
+	groups = {snappy=1,cracky=3,oddly_breakable_by_hand=3,flamable=0,},
+
+})
+
+minetest.register_node('toshamod:rubium_block', {
+	description = "Rubium Block",
+	tiles = {"rubium_block.png"},
+	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=0,flamable=1,stone=1},
+
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_ingot",
+	recipe = { 
+{'', 'default:steel_ingot', ''}, {'', 'dye:red', ''}, {'', 'default:steel_ingot', ''}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_block",
+	recipe = { 
+{'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}, {'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}, {'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:plastic_block",
+	recipe = { 
+{'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}, {'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}, {'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:plastic 9",
+	recipe = { 
+{'toshamod:plastic_block', '', ''}, {'', '', ''}, {'', '', ''}
+	}
+})
+
+minetest.register_abm({
+	nodenames = {"defualt:papyrus"},
+	neighbors = {"defualt:water_source"},
+	interval = 60.0,
+	chance = 45,	
+	action = function(pos, node, active_object_count, active_object_count_wider)
+        minetest.set_node({x = pos.x, y = pos.y +1 , z = pos.z}, {name = "defualt:papyrus"})
+    end
+})
