@@ -264,7 +264,7 @@ minetest.register_craftitem("toshamod:diamond_shard", {
 minetest.register_craft({
 	output = "default:diamond",
 	recipe = { 
-{'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'', '', ''}
+{'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}
 	}
 })
 
@@ -313,9 +313,91 @@ minetest.register_craft({
 minetest.register_abm({
 	nodenames = {"defualt:papyrus"},
 	neighbors = {"defualt:water_source"},
-	interval = 60.0,
-	chance = 45,	
+	interval = 45.0,
+	chance = 3,	
 	action = function(pos, node, active_object_count, active_object_count_wider)
         minetest.set_node({x = pos.x, y = pos.y + 1 , z = pos.z}, {name = "defualt:papyrus"})
     end
+})
+
+minetest.register_tool("toshamod:rubium_shovel", {
+	description = "Rubium Shovel",
+	inventory_image = "rubium_shovel.png",
+	wield_image = "rubium_shovel.png^[transformR90",
+	tool_capabilities = {
+		full_punch_interval = 1.0,
+		max_drop_level=1,
+		groupcaps={
+			crumbly = {times={[1]=1.5, [2]=0.65, [3]=0.35}, uses=12, maxlevel=3},
+		},
+		damage_groups = {fleshy=3},
+	},
+	sound = {breaks = "default_tool_breaks"},
+})
+
+minetest.register_tool("toshamod:rubium_axe", {
+	description = "Rubium Axe",
+	inventory_image = "rubium_axe.png",
+	tool_capabilities = {
+		full_punch_interval = 0.9,
+		max_drop_level=1,
+		groupcaps={
+			choppy={times={[1]=2.80, [2]=1.20, [3]=0.75}, uses=12, maxlevel=3},
+		},
+		damage_groups = {fleshy=5},
+	},
+	sound = {breaks = "default_tool_breaks"},
+})
+
+minetest.register_tool("toshamod:rubium_sword", {
+	description = "Rubium Sword",
+	inventory_image = "rubium_sword.png",
+	tool_capabilities = {
+		full_punch_interval = 0.7,
+		max_drop_level=1,
+		groupcaps={
+			snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=12, maxlevel=3},
+		},
+		damage_groups = {fleshy=7},
+	},
+	sound = {breaks = "default_tool_breaks"},
+})
+
+minetest.register_tool("toshamod:rubium_pickaxe", {
+    description = "Rubium Pickaxe",
+    inventory_image = "rubium_pickaxe.png",
+    tool_capabilities = {
+        max_drop_level=3,
+        groupcaps= {
+            cracky={times={[1]=1.60, [2]=0.80, [3]=0.35}, uses=12, maxlevel=3}
+        }	
+    }
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_shovel",
+	recipe = { 
+{'toshamod:rubium_ingot', '', ''}, {'default:stick', '', ''}, {'default:stick', '', ''}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_pickaxe",
+	recipe = { 
+{'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}, {'', 'default:stick', ''}, {'', 'default:stick', ''}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_axe",
+	recipe = { 
+{'toshamod:rubium_ingot', 'toshamod:rubium_ingot', ''}, {'toshamod:rubium_ingot', 'default:stick', ''}, {'', 'default:stick', ''}
+	}
+})
+
+minetest.register_craft({
+	output = "toshamod:rubium_sword",
+	recipe = { 
+{'toshamod:rubium_ingot', '', ''}, {'toshamod:rubium_ingot', '', ''}, {'default:stick', '', ''}
+	}
 })
