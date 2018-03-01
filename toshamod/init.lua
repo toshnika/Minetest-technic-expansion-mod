@@ -1,4 +1,4 @@
-minetest.register_node('toshamod:thorium_block', {
+minetest.register_node("toshamod:thorium_block", {
 	description = "Thorium Block",
 	tiles = {"thoriumblock.png"},
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=0,flamable=1,stone=1},
@@ -6,11 +6,11 @@ minetest.register_node('toshamod:thorium_block', {
 })
 	
 minetest.register_craft({
-	output = 'toshamod:thorium_block 1',
+	output = "toshamod:thorium_block",
 	recipe ={
-	{'toshamod:thorium_ingot', 'toshamod:thorium_ingot','toshamod:thorium_ingot'},
-	{'toshamod:thorium_ingot', 'toshamod:thorium_ingot','toshamod:thorium_ingot'},
-	{'toshamod:thorium_ingot', 'toshamod:thorium_ingot','toshamod:thorium_ingot'},
+	{"toshamod:thorium_ingot", "toshamod:thorium_ingot","toshamod:thorium_ingot"},
+	{"toshamod:thorium_ingot", "toshamod:thorium_ingot","toshamod:thorium_ingot"},
+	{"toshamod:thorium_ingot", "toshamod:thorium_ingot","toshamod:thorium_ingot"},
 	}
 
 })
@@ -26,19 +26,15 @@ minetest.register_craftitem("toshamod:rubium_ingot", {
 })
 
 minetest.register_craft({
-	output = 'toshamod:thorium_ingot 9',
+	output = "toshamod:thorium_ingot 9",
 	recipe ={
-	{'toshamod:thorium_block', '', ''},
-	{'', '', ''},
-	{'', '', ''},
+	{"toshamod:thorium_block"},
 	}	
 })
 
 minetest.register_node("toshamod:thorium_ore", {
 	description = "Thorium Ore",
-	tiles = {
-		"thorium_ore.png"
-	},
+	tiles = {"thorium_ore.png"},
 	groups = {cracky = 1,stone = 1},
 	drop = "toshamod:thorium_lump"
 })
@@ -57,11 +53,10 @@ minetest.register_craft({
 
 minetest.register_abm({
 	nodenames = {"technic:granite"},
-	neighbors = {"technic:granite"},
-	interval = 200.0,
+	interval = 200,
 	chance = 90,	
-	action = function(pos, node, active_object_count, active_object_count_wider)
-        minetest.set_node({x = pos.x, y = pos.y , z = pos.z}, {name = "toshamod:thorium_ore"})
+	action = function(pos, node)
+        minetest.set_node(pos, {name = "toshamod:thorium_ore"})
     end
 })
 
@@ -71,9 +66,11 @@ minetest.register_craftitem("toshamod:thorium_rod", {
 })
 
 minetest.register_craft({
-	output = "toshamod:thorium_rod 6",
+	output = "toshamod:thorium_rod 2",
 	recipe = { 
-{'', 'toshamod:thorium_ingot', ''}, {'', 'toshamod:thorium_ingot', ''}, {'', '', ''}
+{"", "", "toshamod:thorium_ingot"}, 
+{"", "toshamod:thorium_ingot", ""}, 
+{"toshamod:thorium_ingot", "", ""},
 	}
 })
 
@@ -81,13 +78,6 @@ minetest.register_craft({
 	type = "fuel",
 	recipe = "toshamod:thorium_rod",
 	burntime = 60,
-})
-
-minetest.register_craft({
-	output = "default:paper 6",
-	recipe = { 
-{'default:papyrus', 'default:papyrus', 'default:papyrus'}, {'', '', ''}, {'', '', ''}
-	}
 })
 
 minetest.register_tool("toshamod:thorium_pickaxe", {
@@ -104,7 +94,9 @@ minetest.register_tool("toshamod:thorium_pickaxe", {
 minetest.register_craft({
 	output = "toshamod:thorium_pickaxe",
 	recipe = { 
-{'toshamod:thorium_ingot', 'toshamod:thorium_ingot', 'toshamod:thorium_ingot'}, {'', 'default:stick', ''}, {'', 'default:stick', ''}
+{"toshamod:thorium_ingot", "toshamod:thorium_ingot", "toshamod:thorium_ingot"}, 
+{"", "toshamod:thorium_rod", ""}, 
+{"", "toshamod:thorium_rod", ""}
 	}
 })
 
@@ -125,7 +117,9 @@ minetest.register_tool("toshamod:thorium_sword", {
 minetest.register_craft({
 	output = "toshamod:thorium_sword",
 	recipe = { 
-{'', 'toshamod:thorium_ingot', ''}, {'', 'toshamod:thorium_ingot', ''}, {'', 'toshamod:thorium_rod', ''}
+{"", "toshamod:thorium_ingot", ""}, 
+{"", "toshamod:thorium_ingot", ""}, 
+{"", "toshamod:thorium_rod", ""}
 	}
 })
 
@@ -161,29 +155,33 @@ minetest.register_tool("toshamod:thorium_shovel", {
 minetest.register_craft({
 	output = "toshamod:thorium_shovel",
 	recipe = { 
-{'', 'toshamod:thorium_ingot', ''}, {'', 'default:stick', ''}, {'', 'default:stick', ''}
+{"", "toshamod:thorium_ingot", ""}, 
+{"", "toshamod:thorium_rod", ""}, 
+{"", "toshamod:thorium_rod", ""}
 	}
 })
 
 minetest.register_craft({
 	output = "toshamod:thorium_axe",
 	recipe = { 
-{'toshamod:thorium_ingot', 'toshamod:thorium_ingot', ''}, {'toshamod:thorium_ingot', 'default:stick', ''}, {'', 'default:stick', ''}
+{"toshamod:thorium_ingot", "toshamod:thorium_ingot", ""}, 
+{"toshamod:thorium_ingot", "toshamod:thorium_rod", ""}, 
+{"", "toshamod:thorium_rod", ""}
 	}
 })
 
 minetest.register_craftitem("toshamod:oil", {
-	description = "Oil",
+	description = "Congealed Oil",
 	inventory_image = "oil.png"
 })
 
 minetest.register_craftitem("toshamod:plastic", {
-	description = "Plastic",
+	description = "Plastic Sheeting",
 	inventory_image = "plastic.png"
 })
 
 minetest.register_tool("toshamod:oil_rig", {
-	description = ("Mini Oil Rig"),
+	description = "Mini Oil Rig",
 	inventory_image = "oil_rig.png",
 	on_use = function(itemstack, user, pointed_thing)
 		if pointed_thing.type ~= "node" then
@@ -218,7 +216,9 @@ minetest.register_tool("toshamod:oil_rig", {
 minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
-{'', 'default:stick', ''}, {'default:stick', 'technic:stainless_steel_ingot', 'default:stick'}, {'default:stick', '', 'default:stick'}
+{"", "toshamod:thorium_rod", ""}, 
+{"toshamod:thorium_rod", "technic:stainless_steel_ingot", "toshamod:thorium_rod"}, 
+{"toshamod:thorium_rod", "", "toshamod:thorium_rod"}
 	}
 })
 
@@ -230,9 +230,11 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "technic:lv_cable 6",
+	output = "technic:lv_cable 32",
 	recipe = { 
-{'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}, {'default:copper_ingot', 'default:copper_ingot', 'default:copper_ingot'}, {'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}
+{"toshamod:plastic", "toshamod:plastic", "toshamod:plastic"}, 
+{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"}, 
+{"toshamod:plastic", "toshamod:plastic", "toshamod:plastic"}
 	}
 })
 
@@ -249,12 +251,6 @@ minetest.register_craft({
 	cooktime = 20,
 })
 
-minetest.register_craft({
-	type = "cooking",
-	output = "default:coal",
-	recipe = "default:tree",
-	cooktime = 3,
-})
 
 minetest.register_craftitem("toshamod:diamond_shard", {
 	description = "Diamond Shard",
@@ -264,18 +260,19 @@ minetest.register_craftitem("toshamod:diamond_shard", {
 minetest.register_craft({
 	output = "default:diamond",
 	recipe = { 
-{'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'toshamod:diamond_shard', 'toshamod:diamond_shard', ''}, {'', '', ''}
+{"toshamod:diamond_shard", "toshamod:diamond_shard"}, 
+{"toshamod:diamond_shard", "toshamod:diamond_shard"},
 	}
 })
 
-minetest.register_node('toshamod:plastic_block', {
+minetest.register_node("toshamod:plastic_block", {
 	description = "Plastic Block",
 	tiles = {"plastic_block.png"},
 	groups = {snappy=1,cracky=3,oddly_breakable_by_hand=3,flamable=0,},
 
 })
 
-minetest.register_node('toshamod:rubium_block', {
+minetest.register_node("toshamod:rubium_block", {
 	description = "Rubium Block",
 	tiles = {"rubium_block.png"},
 	groups = {snappy=1,cracky=1,oddly_breakable_by_hand=0,flamable=1,stone=1},
@@ -283,30 +280,36 @@ minetest.register_node('toshamod:rubium_block', {
 })
 
 minetest.register_craft({
-	output = "toshamod:rubium_ingot",
+	output = "toshamod:rubium_ingot 2",
 	recipe = { 
-{'', 'default:steel_ingot', ''}, {'', 'dye:red', ''}, {'', 'default:steel_ingot', ''}
+{"", "default:steel_ingot", ""}, 
+{"default:steel_ingot", "dye:red", "default:steel_ingot"}, 
+{"", "default:steel_ingot", ""}
 	}
 })
 
 minetest.register_craft({
 	output = "toshamod:rubium_block",
 	recipe = { 
-{'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}, {'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}, {'toshamod:rubium_ingot', 'toshamod:rubium_ingot', 'toshamod:rubium_ingot'}
+{"toshamod:rubium_ingot", "toshamod:rubium_ingot", "toshamod:rubium_ingot"}, 
+{"toshamod:rubium_ingot", "toshamod:rubium_ingot", "toshamod:rubium_ingot"}, 
+{"toshamod:rubium_ingot", "toshamod:rubium_ingot", "toshamod:rubium_ingot"}
 	}
 })
 
 minetest.register_craft({
 	output = "toshamod:plastic_block",
 	recipe = { 
-{'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}, {'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}, {'toshamod:plastic', 'toshamod:plastic', 'toshamod:plastic'}
+{"toshamod:plastic", "toshamod:plastic", "toshamod:plastic"}, 
+{"toshamod:plastic", "toshamod:plastic", "toshamod:plastic"}, 
+{"toshamod:plastic", "toshamod:plastic", "toshamod:plastic"}
 	}
 })
 
 minetest.register_craft({
 	output = "toshamod:plastic 9",
 	recipe = { 
-{'toshamod:plastic_block', '', ''}, {'', '', ''}, {'', '', ''}
+{"toshamod:plastic_block"}
 	}
 })
 
