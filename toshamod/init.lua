@@ -316,6 +316,6 @@ minetest.register_abm({
 	interval = 60.0,
 	chance = 45,	
 	action = function(pos, node, active_object_count, active_object_count_wider)
-        minetest.set_node({x = pos.x, y = pos.y +1 , z = pos.z}, {name = "defualt:papyrus"})
+        minetest.set_node({x = pos.x, y = pos.y + 1 , z = pos.z}, {name = "defualt:papyrus"})
     end
 })
