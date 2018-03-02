@@ -95,8 +95,8 @@ minetest.register_craft({
 	output = "toshamod:thorium_pickaxe",
 	recipe = { 
 {"toshamod:thorium_ingot", "toshamod:thorium_ingot", "toshamod:thorium_ingot"}, 
-{"", "toshamod:thorium_rod", ""}, 
-{"", "toshamod:thorium_rod", ""}
+{"", "defualt:stick", ""}, 
+{"", "defualt:stick", ""}
 	}
 })
 
@@ -156,8 +156,8 @@ minetest.register_craft({
 	output = "toshamod:thorium_shovel",
 	recipe = { 
 {"", "toshamod:thorium_ingot", ""}, 
-{"", "toshamod:thorium_rod", ""}, 
-{"", "toshamod:thorium_rod", ""}
+{"", "defualt:stick", ""}, 
+{"", "defualt:stick", ""}
 	}
 })
 
@@ -165,8 +165,8 @@ minetest.register_craft({
 	output = "toshamod:thorium_axe",
 	recipe = { 
 {"toshamod:thorium_ingot", "toshamod:thorium_ingot", ""}, 
-{"toshamod:thorium_ingot", "toshamod:thorium_rod", ""}, 
-{"", "toshamod:thorium_rod", ""}
+{"toshamod:thorium_ingot", "defualt:stick", ""}, 
+{"", "defualt:stick", ""}
 	}
 })
 
