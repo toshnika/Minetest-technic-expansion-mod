@@ -263,7 +263,6 @@ minetest.register_craft({
 
 {"toshamod:diamond_shard", "toshamod:diamond_shard"}, 
 {"toshamod:diamond_shard", "toshamod:diamond_shard"},
-=======
 	}
 })
 
