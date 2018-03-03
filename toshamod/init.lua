@@ -406,3 +406,4 @@ minetest.register_craft({
 	}
 })
 
+dofile(modpath.."/machines.lua")
