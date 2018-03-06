@@ -9,3 +9,5 @@
 0.1.4. released 2/3/2018. Thanks rsl-redstonier, your changes have been slightly edited and merged. sorry for the wait.
   oil rig now needs a thorium rod. thorium rods now much more expensive (3 ingots to 2 rods). diamonds now cheaper again. 
   removed charcoal recipe. changed a few names. you get more lv cables crafting with plastic.
+0.2.0 released 6/3/2018. Diamonds more expensive again. oil rig no longer needs thorium rods. Added oil rig block, drilling mass
+  amounts of oil (usually) from the sand every 20 minutes. Don't let it overflow!
