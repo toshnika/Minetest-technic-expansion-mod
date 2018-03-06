@@ -217,7 +217,7 @@ minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
 {"", "defualt:stick", ""}, 
-{"defualt:stick", "technic:stainless_steel_ingot", "defualt:stick"}, 
+{"defualt:stick", "technic:carbon_steel_ingot", "defualt:stick"}, 
 {"defualt:stick", "", "defualt:stick"}
 	}
 })
