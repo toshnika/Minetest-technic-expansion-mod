@@ -216,9 +216,9 @@ minetest.register_tool("toshamod:oil_rig", {
 minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
-{"", "defualt:stick", ""}, 
-{"defualt:stick", "technic:carbon_steel_ingot", "defualt:stick"}, 
-{"defualt:stick", "", "defualt:stick"}
+{"", "default:stick", ""}, 
+{"default:stick", "technic:carbon_steel_ingot", "default:stick"}, 
+{"default:stick", "", "default:stick"}
 	}
 })
 
@@ -566,7 +566,7 @@ minetest.register_abm({
 minetest.register_craft({
 	output = "toshamod:oil_rig_block",
 	recipe = { 
-{'defualt:stick', 'toshamod:thorium_rod', 'default:stick'}, {'default:stick', 'technic:machine_casing', 'default:stick'}, 
+{'default:stick', 'toshamod:thorium_rod', 'default:stick'}, {'default:stick', 'technic:machine_casing', 'default:stick'}, 
 			{'default:stick', 'toshamod:oil_rig', 'default:stick'}
 	}
 })
