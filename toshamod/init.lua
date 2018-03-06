@@ -216,7 +216,7 @@ minetest.register_tool("toshamod:oil_rig", {
 minetest.register_craft({
 	output = "toshamod:oil_rig",
 	recipe = { 
-{"", "toshamod:thorium_rod", ""}, 
+{"", "defualt:stick", ""}, 
 {"defualt:stick", "technic:stainless_steel_ingot", "defualt:stick"}, 
 {"defualt:stick", "", "defualt:stick"}
 	}
@@ -263,6 +263,7 @@ minetest.register_craft({
 
 {"toshamod:diamond_shard", "toshamod:diamond_shard"}, 
 {"toshamod:diamond_shard", "toshamod:diamond_shard"},
+{"toshamod:diamond_shard", "toshamod:diamond_shard"}, 
 	}
 })
 
@@ -406,4 +407,166 @@ minetest.register_craft({
 	}
 })
 
-dofile(modpath.."/machines.lua")
+minetest.register_craft({
+	output = "toshamod:rubium_axe",
+	recipe = { 
+{'toshamod:rubium_ingot', 'toshamod:rubium_ingot', ''}, {'toshamod:rubium_ingot', 'default:stick', ''}, {'', 'default:stick', ''}
+	}
+})
+
+minetest.register_node("toshamod:oil_rig_block", {
+	description = "Oil Rig",
+	tiles = {"oil_rig_block.png"},
+	groups = {cracky = 2},
+	after_place_node = function(pos, placer)
+
+		local meta = minetest.get_meta(pos)
+meta:set_string("formspec",
+        "invsize[8,9;]"..
+        "list[context;main;0,0;8,4;]"..
+        "list[current_player;main;0,5;8,4;]")
+meta:set_string("infotext", "Oil Rig");
+local inv = meta:get_inventory()
+inv:set_size("main", 8*4)
+print(dump(meta:to_table()))
+meta:from_table({
+    inventory = {
+        main = {
+[1] = "",
+[2] = "",
+[3] = "",
+[4] = "",
+[5] = "",
+[6] = "",
+[7] = "",
+[8] = "",
+[9] = "",
+[10] = "",
+[11] = "",
+[12] = "",
+[13] = "",
+[14] = "",
+[15] = "",
+[16] = "",
+[17] = "",
+[18] = "",
+[19] = "",
+[20] = "",
+[21] = "",
+[22] = "",
+[23] = "",
+[24] = "",
+[25] = "",
+[26] = "",
+[27] = "",
+[28] = "",
+[29] = "",
+[30] = "",
+[31] = "",
+[32] = ""}
+    },
+    fields = {
+        formspec = "invsize[8,9;]list[context;main;0,0;8,4;]list[current_player;main;0,5;8,4;]",
+        infotext = "Oil Rig"
+    }
+})
+    end,
+	on_receive_fields = function(pos, formname, fields, player)
+		if(fields.quit) then return end
+		print(fields.x)
+	end
+})
+
+minetest.register_abm({
+        label = "oil drilling",
+	nodenames = {"toshamod:oil_rig_block"},
+	neighbors = {"default:sand"},
+	interval = 1200,
+	chance = 1.8,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+        minetest.set_node({x = pos.x, y = pos.y, z = pos.z}, {name = "toshamod:oil_rig_full"})
+    end
+})
+
+minetest.register_node("toshamod:oil_rig_full", {
+	description = "Oil Rig Full",
+	tiles = {"oil_rig_full.png"},
+	groups = {cracky = 2},
+	drop = "toshamod:oil_rig_block",
+	on_construct = function(pos, placer)
+
+		local meta = minetest.get_meta(pos)
+meta:set_string("formspec",
+        "invsize[8,9;]"..
+        "list[context;main;0,0;8,4;]"..
+        "list[current_player;main;0,5;8,4;]")
+meta:set_string("infotext", "Oil Rig");
+local inv = meta:get_inventory()
+inv:set_size("main", 8*4)
+print(dump(meta:to_table()))
+meta:from_table({
+    inventory = {
+        main = {
+[1] = "toshamod:oil",
+[2] = "toshamod:oil",
+[3] = "toshamod:oil",
+[4] = "toshamod:oil",
+[5] = "toshamod:oil",
+[6] = "toshamod:oil",
+[7] = "toshamod:oil",
+[8] = "toshamod:oil",
+[9] = "toshamod:oil",
+[10] = "toshamod:oil",
+[11] = "toshamod:oil",
+[12] = "toshamod:oil",
+[13] = "toshamod:oil",
+[14] = "toshamod:oil",
+[15] = "toshamod:oil",
+[16] = "toshamod:oil",
+[17] = "toshamod:oil",
+[18] = "toshamod:oil",
+[19] = "toshamod:oil",
+[20] = "toshamod:oil",
+[21] = "toshamod:oil",
+[22] = "toshamod:oil",
+[23] = "toshamod:oil",
+[24] = "toshamod:oil",
+[25] = "toshamod:oil",
+[26] = "toshamod:oil",
+[27] = "toshamod:oil",
+[28] = "toshamod:oil",
+[29] = "toshamod:oil",
+[30] = "toshamod:oil",
+[31] = "toshamod:oil",
+[32] = "toshamod:oil"}
+    },
+    fields = {
+        formspec = "invsize[8,9;]list[context;main;0,0;8,4;]list[current_player;main;0,5;8,4;]",
+        infotext = "Oil Rig"
+    }
+})
+    end,
+	on_receive_fields = function(pos, formname, fields, player)
+		if(fields.quit) then return end
+		print(fields.x)
+	end
+})
+
+minetest.register_abm({
+        label = "oil overfill",
+	nodenames = {"toshamod:oil_rig_full"},
+	neighbors = {"default:sand"},
+	interval = 1200,
+	chance = 1.8,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+        minetest.set_node({x = pos.x, y = pos.y, z = pos.z}, {name = "toshamod:oil_rig_block"})
+    end
+})
+
+minetest.register_craft({
+	output = "toshamod:oil_rig_block",
+	recipe = { 
+{'defualt:stick', 'toshamod:thorium_rod', 'default:stick'}, {'default:stick', 'technic:machine_casing', 'default:stick'}, 
+			{'default:stick', 'toshamod:oil_rig', 'default:stick'}
+	}
+})
