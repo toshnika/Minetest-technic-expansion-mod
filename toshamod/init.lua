@@ -316,11 +316,11 @@ minetest.register_craft({
 })
 
 minetest.register_abm({
-	nodenames = {"defualt:papyrus"},
+	nodenames = {"default:papyrus"},
 	interval = 45.0,
 	chance = 2,	
 	action = function(pos, node, active_object_count, active_object_count_wider)
-        minetest.set_node({x = pos.x, y = pos.y + 1 , z = pos.z}, {name = "defualt:papyrus"})
+        minetest.set_node({x = pos.x, y = pos.y + 1 , z = pos.z}, {name = "default:papyrus"})
     end
 })
 
