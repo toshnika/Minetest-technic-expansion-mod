@@ -317,6 +317,7 @@ minetest.register_craft({
 
 minetest.register_abm({
 	nodenames = {"default:papyrus"},
+	neighbors = ("group:water"},
 	interval = 45.0,
 	chance = 2,	
 	action = function(pos, node, active_object_count, active_object_count_wider)
